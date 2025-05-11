@@ -13,3 +13,57 @@
   - cdn: embed link into html -> build js (1M)
     - chia tải load resource vs server minh: server cdn sẽ load slick carousel
     - server của mình load resource js
+
+# React structure code 
+- custom hooks
+- context
+- dynamic layout + dynamic components
+- group by folder
+  - src/components
+    - tables
+    - pagination
+    - buttons
+    - images
+  - src/hooks
+  - src/helper
+  - src/pages
+    - product
+        - import Button from './components/buttons'
+    - home
+    - user
+    - login
+  - src/features
+    - login
+        - hooks
+        - components
+        - helpers
+
+- group by feature
+    - src/components
+      - tables
+      - pagination
+      - buttons
+    - src/hooks
+    - src/helper
+    - src/feature
+      - product
+        - components
+            - tables
+            - pagination
+            - buttons
+      - user
+        - import Table from './feature/product/components/table'
+
+# Naming conversation
+- UPPERCASE
+  - format: PRODUCT, USER, PRODUCT_DETAIl
+  - usage: constant, config
+- PascalCase: 
+  - format: product, user, product_detail
+  - usage: variable, file, folder
+- kebab-case: 
+  - format: product-detail, product-service
+  - usage:  file, folder
+- camelCase:
+  - format: convertNumberToString, fetchUser, convertDateToTimestap, openNewUrl, handleDeleteItem
+  - usage:  file, function, custom hooks

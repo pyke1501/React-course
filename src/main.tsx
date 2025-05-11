@@ -1,7 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './styles/index.css'
 import App from './App.tsx'
+
+/* user
+import UserEdit from './pages/user/edit';
+import UserShow from './pages/user/show';
+import UserCreate from './pages/user/create';
+import UserList from './pages/user/list';
+
+------
+import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
+*/
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

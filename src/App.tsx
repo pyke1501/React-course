@@ -1,9 +1,17 @@
-function App() {
+import JSX from "./pages/fundamental/JSX"
+import Props from "./pages/fundamental/Props"
 
-  
+function App() {
   return (
     <>
-      dsds
+      <JSX />
+
+      <br /><br /><br />
+      
+      <Props />
+
+      <br /><br /><br />
+      <br /><br /><br />
     </>
   )
 }

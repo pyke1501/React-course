@@ -30,6 +30,7 @@ spread operator -> dàn trải các properties thay vì đi khai báo từng cá
 
 */
 
+
 function Typography() {
   return (
     <div>this is Typography</div>
@@ -58,7 +59,9 @@ function Props() {
         component1={<Typography />}
         component2={Typography}
         {...product} // spread operator
-      />
+      >
+        this is children
+      </TextButton>
       
     </div>
   )

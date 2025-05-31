@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function HoangColorBox() {
-  return (
-    <div>Hoang ColorBox</div>
-  )
+  return <div>Hoang ColorBox -- Hai updated</div>;
 }
 
-export default HoangColorBox
+export default HoangColorBox;

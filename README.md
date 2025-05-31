@@ -67,3 +67,21 @@
 - camelCase:
   - format: convertNumberToString, fetchUser, convertDateToTimestap, openNewUrl, handleDeleteItem
   - usage:  file, function, custom hooks
+
+
+## Gitflow
+
+#### Step to step to implement an feature
+```bash
+1. create feature branch from main branch
+$ git checkout main
+$ git pull
+$ git checkout -b feature/tony-1234-show-notification-login
+
+2. create an MR (merge request)
+- go to Pull Request 
+- create Pull Request
+- team member review
+- click Merged
+
+```

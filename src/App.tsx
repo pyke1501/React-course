@@ -1,16 +1,19 @@
-import Component from "./pages/fundamental/Component"
-import JSX from "./pages/fundamental/JSX"
-import Props from "./pages/fundamental/Props"
-import State from "./pages/fundamental/State"
-import HoangColorBox from "./sampleApp/hoang/HoangColorBox"
+import Component from "./pages/fundamental/Component";
+import JSX from "./pages/fundamental/JSX";
+import Props from "./pages/fundamental/Props";
+import State from "./pages/fundamental/State";
+import HaiColorBox from "./sampleApp/hai/HaiColorBox";
+import HoangColorBox from "./sampleApp/hoang/HoangColorBox";
 
 function App() {
   return (
     <>
       <JSX />
 
-      <br /><br /><br />
-      
+      <br />
+      <br />
+      <br />
+
       <Props />
 
       <br />
@@ -22,10 +25,17 @@ function App() {
       <br />
       <HoangColorBox />
 
-      <br /><br /><br />
-      <br /><br /><br />
+      <br />
+      <HaiColorBox />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

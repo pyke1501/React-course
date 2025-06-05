@@ -1,7 +1,8 @@
 // import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './styles/index.css'
-import App from './App.tsx'
+import { createRoot } from "react-dom/client";
+import "./styles/index.css";
+import "./styles/hai-color-box.css";
+import App from "./App.tsx";
 
 /* user
 import UserEdit from './pages/user/edit';
@@ -13,8 +14,8 @@ import UserList from './pages/user/list';
 import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
 */
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   // <StrictMode>
-    <App />
+  <App />
   // </StrictMode>,
-)
+);

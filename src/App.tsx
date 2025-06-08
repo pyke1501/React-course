@@ -4,7 +4,8 @@ import HandleEvent from "./pages/fundamental/HandleEvent"
 import JSX from "./pages/fundamental/JSX"
 import ListKey from "./pages/fundamental/ListKey"
 import Props from "./pages/fundamental/Props"
-import State from "./pages/fundamental/State"
+import State from "./pages/fundamental/State"   
+import HaiColorBox from "./sampleApp/hai/HaiColorBox";
 import HoangColorBox from "./sampleApp/hoang/HoangColorBox"
 
 function App() {
@@ -12,8 +13,10 @@ function App() {
     <>
       <JSX />
 
-      <br /><br /><br />
-      
+      <br />
+      <br />
+      <br />
+
       <Props />
 
       <br />
@@ -36,8 +39,16 @@ function App() {
 
       <br /><br /><br />
       <br /><br /><br />
+      <HaiColorBox />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

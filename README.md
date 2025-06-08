@@ -83,12 +83,19 @@ $ git checkout -b feature/tony-1234-show-notification-login
 - create Pull Request
 - team member review
 - click Merged
-
 ```
 
-### Fix confict code
+#### Fix conflict
+```bash
+# fix conflict at uat/dev branch
+$ git checkout dev/uat
+$ git checkout -b feature/fc-tony-1234-hai 
+$ git merge feature/tony-1234-hai
+## fix conflict done
+$ git add .
+$ git commit
 
-1. conflict code when merge your branch into develop/qc branch
-
-2. conflict code when merge your branch (feature/a) into main branch
-- 
+# fix conflict at master/main branch
+$ git checkout feature/tony-1234-hai
+$ git pull --rebase origin main/master branch
+```

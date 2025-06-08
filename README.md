@@ -85,10 +85,3 @@ $ git checkout -b feature/tony-1234-show-notification-login
 - click Merged
 
 ```
-
-### Fix confict code
-
-1. conflict code when merge your branch into develop/qc branch
-
-2. conflict code when merge your branch (feature/a) into main branch
-- 

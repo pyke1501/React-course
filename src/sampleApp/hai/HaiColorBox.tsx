@@ -7,7 +7,7 @@ function HaiBoxColor() {
 
   const colors = ["red", "yellow", "aqua", "purple"];
 
-  function updateBoxColor(e) {
+  function updateBoxColor(e: React.MouseEvent<HTMLDivElement>) {
     const selectedColor = e.currentTarget.className;
 
     setBoxColor((prevState) => {

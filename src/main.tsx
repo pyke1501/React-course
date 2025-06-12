@@ -1,7 +1,9 @@
 // import { StrictMode } from 'react'
 import { createRoot } from "react-dom/client";
+
+import "./styles/bootstrap-custom.css";
 import "./styles/index.css";
-import "./styles/hai-color-box.css";
+
 import App from "./App.tsx";
 
 /* user

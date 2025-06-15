@@ -9,6 +9,8 @@ import HoangColorBox from "./sampleApp/hoang/HoangColorBox"
 import HaiBoxColor from "./sampleApp/hai/HaiColorBox"
 import PropDrillingLiftingStateUp from './pages/fundamental/PropDrillingLiftingStateUp'
 import Form from "./pages/fundamental/Form"
+import StateHook from "./pages/fundamental/StateHook";
+import EffectHook from "./pages/fundamental/EffectHook";
 
 function App() {
   return (
@@ -45,6 +47,12 @@ function App() {
 
       <br />
       <Form />
+
+      <br />
+      <StateHook />
+
+      <br />
+      <EffectHook />
 
       <br /><br /><br />
       <br /><br /><br />

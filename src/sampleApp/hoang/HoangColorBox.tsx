@@ -40,7 +40,6 @@ function App() {
   );
 }
 
-// ✅ CSS
 const styles = {
   container: {
     display: "grid",

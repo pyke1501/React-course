@@ -99,3 +99,10 @@ $ git commit
 $ git checkout feature/tony-1234-hai
 $ git pull --rebase origin main/master branch
 ```
+
+### Term
+- CDN
+  - load resource gần người dùng nhất
+  - chia tải resource cho server của mình
+- singe thread javascript
+- critical rendering path

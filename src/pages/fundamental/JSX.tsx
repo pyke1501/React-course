@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAppContext } from '../../context/AppContext';
 
 /*
 Empty tag:
@@ -7,6 +8,7 @@ Empty tag:
 */
 
 function JSX() {
+  const { toggleTheme } = useAppContext();
   // const sum = 1 + 1;
   const sum = (
     <span>this is sum: {1 + 1}</span>
@@ -49,7 +51,8 @@ function JSX() {
       Product: {lists} <br />
       Traditional Function: {renderButton()} <br />
       Arrow function: {renderSum()} <br />
-      Input: <input type="text" />
+      Input: <input type="text" /> <br />
+      <button type="button" onClick={toggleTheme}>Toggle theme</button>
     </React.Fragment>
   )
 }

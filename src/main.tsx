@@ -5,6 +5,7 @@ import './styles/bootstrap-custom.css'
 import './styles/index.css';
 
 import App from './App.tsx'
+import { AppProvider } from './context/AppContext.tsx';
 
 /* user
 import UserEdit from './pages/user/edit';
@@ -18,6 +19,8 @@ import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
+  <AppProvider>
     <App />
+  </AppProvider>
   // </StrictMode>,
 )

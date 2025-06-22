@@ -1,4 +1,5 @@
 import TextButton from "../../components/ui/button/text-button"
+import { useAppContext } from "../../context/AppContext"
 
 /* props
  - use to pass props value into child component
@@ -43,9 +44,14 @@ function Props() {
     price: 200,
     isStock: true
   }
+  const { theme } = useAppContext();
+
+  console.log('props theme: ', theme)
+
   return (
     <div>
-      <h1>Props</h1>
+      <h1>Props</h1> <br />
+      Theme: {theme} <br />
       <TextButton 
         firstName="tony" // string
         isAdult={true} // boolean

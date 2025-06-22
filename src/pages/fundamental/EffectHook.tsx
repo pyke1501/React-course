@@ -130,6 +130,10 @@ function EffectHook() {
       </div>
       
 
+      <div>
+        <div className='boxDemo box1'>Box 1</div>
+        <div className='boxDemo'>Box 2</div>
+      </div>
    </div>
   )
 }

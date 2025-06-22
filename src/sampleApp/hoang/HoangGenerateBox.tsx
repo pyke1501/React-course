@@ -11,11 +11,11 @@ const getRandomColor = () => {
 };
 
 function HoangGenerateBox() {
-  const [numBoxes, setNumBoxes] = useState('');
+  const [numBoxes, setNumBoxes] = useState(0);
   const [boxes, setBoxes] = useState<{ id: number; color: string }[]>([]);
 
   const handleGenerate = () => {
-    const number = parseInt(numBoxes);
+    const number = numBoxes;
     if (!number || number < 1 || number > 128) {
       setBoxes([]); // nếu sai, xóa hết box đi
       return;
@@ -27,12 +27,13 @@ function HoangGenerateBox() {
     setBoxes(newBoxes);
   };
 
-  const toggleColor = (index) => {
+  const toggleColor = (boxId: number) => {
     setBoxes((prev) =>
-      prev.map((box, i) =>
-        i === index ? { ...box, color: getRandomColor() } : box
+      prev.map((box) =>
+        box.id === boxId ? { ...box, color: getRandomColor() } : box
       )
     );
+    // find index, em thay đổi thuộc tính của index đó. index = 1; boxes[1].color = ???
   };
 
   return (
@@ -65,7 +66,7 @@ function HoangGenerateBox() {
           min="1"
           max="128"
           value={numBoxes}
-          onChange={(e) => setNumBoxes(e.target.value)}
+          onChange={(e) => setNumBoxes(parseInt(e.target.value))}
           style={{ marginLeft: '10px', marginRight: '10px' }}
         />
       </label>
@@ -75,12 +76,12 @@ function HoangGenerateBox() {
         {boxes.length === 0 ? (
           <p>No box</p>
         ) : (
-          boxes.map((box, index) => (
+          boxes.map((box) => (
             <div
-              key={index}
+              key={box.id}
               className="box"
               style={{ backgroundColor: box.color }}
-              onClick={() => toggleColor(index)}
+              onClick={() => toggleColor(box.id)}
             >
               box #{box.id}
             </div>

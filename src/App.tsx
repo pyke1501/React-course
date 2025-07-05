@@ -14,6 +14,7 @@ import HoangGenerateBox from "./sampleApp/hoang/HoangGenerateBox"
 import Context from "./pages/fundamental/Context"
 import RefHook from "./pages/fundamental/RefHook"
 import PerformanceHook from "./pages/fundamental/PerformanceHook"
+import TrafficLight from "./sampleApp/hoang/HoangTrafficLight";
 
 function App() {
   return (
@@ -65,6 +66,9 @@ function App() {
 
       <br />
       <PerformanceHook />
+
+      <br />
+      <TrafficLight />
 
       <br /><br /><br />
       <br /><br /><br />

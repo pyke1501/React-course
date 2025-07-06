@@ -13,6 +13,7 @@ import EffectHook from "./pages/fundamental/EffectHook";
 import HoangGenerateBox from "./sampleApp/hoang/HoangGenerateBox"
 import Context from "./pages/fundamental/Context"
 import RefHook from "./pages/fundamental/RefHook"
+import PerformanceHook from "./pages/fundamental/PerformanceHook"
 
 function App() {
   return (
@@ -61,6 +62,9 @@ function App() {
       <br />
 
       <RefHook />
+
+      <br />
+      <PerformanceHook />
 
       <br /><br /><br />
       <br /><br /><br />

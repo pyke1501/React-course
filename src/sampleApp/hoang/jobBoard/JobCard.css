@@ -1,0 +1,33 @@
+.job-card {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.job-card + .job-card { /* Margin top cho các thẻ sau thẻ đầu tiên */
+  margin-top: 10px;
+}
+
+.job-title {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.job-meta {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.job-poster {
+  font-weight: bold;
+  color: #555;
+}
+
+.job-date {
+  color: #888;
+}

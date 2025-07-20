@@ -15,6 +15,7 @@ import Context from "./pages/fundamental/Context"
 import RefHook from "./pages/fundamental/RefHook"
 import PerformanceHook from "./pages/fundamental/PerformanceHook"
 import TrafficLight from "./sampleApp/hoang/HoangTrafficLight";
+import HoangJobBoard from "./sampleApp/hoang/jobBoard/hoangJobBoard"
 
 function App() {
   return (
@@ -66,6 +67,9 @@ function App() {
 
       <br />
       <PerformanceHook />
+      <br />
+      <br />
+      <HoangJobBoard/>
 
       <br />
       <TrafficLight />

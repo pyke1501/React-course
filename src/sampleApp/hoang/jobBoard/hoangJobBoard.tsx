@@ -4,33 +4,45 @@ import './hoangJobBoard.css';
 
 const JOBS_PER_PAGE = 6;
 
+interface IJob {
+  "by": string,
+  "id": number,
+  "score": number,
+  "time": number,
+  "title": string,
+  "type": string,
+  "url": string,
+}
+
 function HoangJobBoard() {
-    const [jobIds, setJobIds] = useState([]);
-    const [jobs, setJobs] = useState([]);
+    const [jobIds, setJobIds] = useState<number[]>([]);
+    const [jobs, setJobs] = useState<IJob[]>([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
     const [currentPage, setCurrentPage] = useState(0);
     const [hasMore, setHasMore] = useState(true);
 
+    console.log('jobs: ', jobs)
+
     // Hàm để lấy danh sách ID của các công việc
     const fetchJobIds = useCallback(async () => {
-        try {
+      try {
         const response = await fetch('https://hacker-news.firebaseio.com/v0/jobstories.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      }
         const data = await response.json();
         setJobIds(data);
-        } catch (err) {
+      } catch (err) {
         setError('Không thể tải danh sách ID công việc');
         console.error('Lỗi khi fetch job IDs:', err);
-        } finally {
+      } finally {
         setLoading(false);
-        }
+      }
     }, []);
 
     // Hàm để lấy chi tiết của một công việc
-  const fetchJobDetails = useCallback(async (id) => {
+  const fetchJobDetails = useCallback(async (id: number) => {
     try {
       const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
       if (!response.ok) {
@@ -45,7 +57,7 @@ function HoangJobBoard() {
   }, []);
 
   // Tải các công việc ban đầu hoặc khi người dùng click "Load more"
-  const loadJobs = useCallback(async (startIndex) => {
+  const loadJobs = useCallback(async (startIndex: number) => {
     setLoading(true);
     const endIndex = startIndex + JOBS_PER_PAGE;
     const idsToLoad = jobIds.slice(startIndex, endIndex);
@@ -62,9 +74,9 @@ function HoangJobBoard() {
     setJobs(prevJobs => [...prevJobs, ...newJobs]);
     setCurrentPage(prevPage => prevPage + 1);
 
-    if (endIndex >= jobIds.length) { // Kiểm tra xem còn công việc để tải không
-      setHasMore(false);
-    }
+    // if (endIndex >= jobIds.length) { // Kiểm tra xem còn công việc để tải không
+    //   setHasMore(false);
+    // }
     setLoading(false);
   }, [jobIds, fetchJobDetails]);
 
@@ -74,11 +86,16 @@ function HoangJobBoard() {
   }, [fetchJobIds]);
 
   // Effect để tải các công việc đầu tiên sau khi có jobIds
+  // useEffect(() => {`
+  //   if (jobIds.length > 0 && jobs.length === 0 && !loading) {
+  //     loadJobs(0);
+  //   }
+  // }, [jobIds, jobs.length, loading, loadJobs]);
   useEffect(() => {
-    if (jobIds.length > 0 && jobs.length === 0 && !loading) {
+    if (jobIds.length > 0) {
       loadJobs(0);
     }
-  }, [jobIds, jobs.length, loading, loadJobs]);
+  }, [jobIds]);
 
   const handleLoadMore = () => {
     loadJobs(currentPage * JOBS_PER_PAGE);

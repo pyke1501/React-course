@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import SimpleCard from '../../components/ui/card/simple-card'
+import { useResizeWindow } from '../../hooks/useResizeWindow';
 
 /*
 - data type in javascript
@@ -39,6 +40,9 @@ useCallback:
 - Returns  a memorized callback function.
 - Callback function will re-runs if one of the dependencies has changed.
 
+useMemo:
+- Returns a memorized value.
+- useMemo will re-runs if one of the dependencies has changed.
 */
 
 function PerformanceHook() {
@@ -48,6 +52,21 @@ function PerformanceHook() {
     name: 'tony',
     year: 1998
   });
+  const [cart, setCart] = React.useState([
+    { id: 1, product: 'iphone', quanlity: 2, price: 200 },
+    { id: 2, product: 'samsung', quanlity: 1, price: 1000 },
+    { id: 3, product: 'mac', quanlity: 2, price: 1200 }
+  ])
+  const { isSmall } = useResizeWindow();
+
+  const totalPrice = React.useMemo(() => {
+    return cart.reduce((acc, curr) => {
+      acc += curr.price * curr.quanlity
+      return acc
+    }, 0)
+  }, [cart])
+
+  console.log('totalPrice: ', totalPrice)
 
   function toggleAuth() {
     setIsAuth(prev => !prev)
@@ -67,6 +86,11 @@ function PerformanceHook() {
       ...prev,
       name: prev.name + Date.now()
     }))
+
+    setCart(prevState => {
+      const newItem = { id: 1, product: 'tivi', quanlity: 1, price: 100 }
+      return [...prevState, newItem]
+    })
   }
 
   console.log('PerformanceHook re-render')
@@ -77,6 +101,10 @@ function PerformanceHook() {
       <button type='button' onClick={toggleAuth}>Toggle Auth</button>
      
       <button type='button' onClick={updateMovie}>Update Movie</button>
+
+      <br />
+      Total Cart: ${totalPrice} <br />
+      Screen Size: {isSmall ? 'small' : 'large'}
 
       <SimpleCard 
         title={title} 

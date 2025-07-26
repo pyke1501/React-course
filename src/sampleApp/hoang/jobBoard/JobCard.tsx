@@ -1,7 +1,6 @@
-import React from 'react';
 import './JobCard.css'; // Import CSS cho JobCard
 
-function JobCard({ job }) {
+function JobCard() {
   // Chuyển đổi timestamp sang định dạng ngày tháng dễ đọc
   const date = new Date(job.time * 1000).toLocaleString();
 

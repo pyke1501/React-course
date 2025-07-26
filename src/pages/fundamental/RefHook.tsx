@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Modal from '../../components/ui/modal/Modal';
+import { useResizeWindow } from '../../hooks/useResizeWindow';
 
 
 /*
@@ -62,6 +63,8 @@ function RefHook() {
     console.log("myInputRef: ", myInputRef)
   }
 
+  const { isSmall } = useResizeWindow();
+  
   console.log('refhook render: ', isSkipFirstRenderRef)
 
   return (
@@ -91,6 +94,8 @@ function RefHook() {
       >
         Toggle modal
       </button>
+      <br />
+      Screen Size: {isSmall ? 'small' : 'large'} <br />
       <Modal ref={modalRef} />
     </div>
   )

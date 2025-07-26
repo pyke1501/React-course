@@ -6,6 +6,7 @@ import './styles/index.css';
 
 import App from './App.tsx'
 import { AppProvider } from './context/AppContext.tsx';
+import { BrowserRouter } from 'react-router';
 
 /* user
 import UserEdit from './pages/user/edit';
@@ -19,8 +20,10 @@ import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
-  <AppProvider>
-    <App />
-  </AppProvider>
+  <BrowserRouter>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </BrowserRouter>
   // </StrictMode>,
 )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 /*
 Pure Component/Presentation Component/Stateless component
@@ -34,7 +35,9 @@ function IncrementCount({ times = 1 }) {
   )
 }
 
+
 function Component() {
+  const navigate = useNavigate();
   const [timestamp, setTimestamp] = React.useState(Date.now());
 
   return (
@@ -42,7 +45,9 @@ function Component() {
       <h1>Component</h1>
       <button onClick={() => setTimestamp(Date.now())}>Force Update</button>
       Page A: <IncrementCount key={timestamp} />
-      Page B: <IncrementCount times={2} />
+      Page B: <IncrementCount times={2} /> <b/>
+
+      <button type="button" onClick={() => navigate('/props')}>Navigate to Props</button>
     </div>
   )
 }

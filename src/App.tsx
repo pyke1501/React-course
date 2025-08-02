@@ -16,9 +16,24 @@ import RefHook from "./pages/fundamental/RefHook"
 import PerformanceHook from "./pages/fundamental/PerformanceHook"
 import TrafficLight from "./sampleApp/hoang/HoangTrafficLight";
 import HoangJobBoard from "./sampleApp/hoang/jobBoard/hoangJobBoard"
-import { Link, NavLink, Route, Routes } from "react-router"
+import { Link, NavLink, Route, Routes, useLocation } from "react-router"
+import React from "react"
+import Profile from "./pages/fundamental/Profile"
+import AccountBank from "./components/profile/AccountBank"
+import Transaction from "./components/profile/Transaction"
+import Membership from "./components/profile/Membership"
+import User from "./pages/fundamental/User"
+import UserDetail from "./pages/fundamental/UserDetail"
 
 function App() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    // GA
+    console.log('location: ', location)
+  }, [location])
+
+
   return (
     <>
     <header>
@@ -72,6 +87,22 @@ function App() {
                   Component
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/profile"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/user"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  User
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -83,6 +114,20 @@ function App() {
       <Route path="/props" element={<Props />} />
       <Route path="/state" element={<State />} />
       <Route path="/component" element={<Component />} />
+      {/* <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/account-bank" element={<AccountBank />} />
+      <Route path="/profile/account-transaction" element={<Transaction />} />
+      <Route path="/profile/account-member" element={<Membership />} /> */}
+
+      <Route path="/profile" element={<Profile />}>
+        <Route index element={<AccountBank />} />
+        <Route path="account-bank" element={<AccountBank />} />
+        <Route path="account-transaction" element={<Transaction />} />
+        <Route path="account-member" element={<Membership />} />
+      </Route>
+
+      <Route path="/user" element={<User />} />
+      <Route path="/user/:id" element={<UserDetail />} />
     </Routes>
 
     <br /><br />

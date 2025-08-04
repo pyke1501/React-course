@@ -106,3 +106,23 @@ $ git pull --rebase origin main/master branch
   - chia tải resource cho server của mình
 - singe thread javascript
 - critical rendering path
+
+# Authenticate & Authorization
+
+## Authenticate
+- xác thực. Xem chúng ta đã đăng ký account trong system
+
+## Authorization
+- phân quyền
+- Restful API: create - read - update - delete (CRUD)
+- role: admin, member, operator (RBAC - Role-Based Access Control)
+- FE phân quyền
+  - phân quyền theo page
+    - admin: can access all page
+    - member: can access user list, dashboard list. Can't access go to create user page, edit user page...
+  - phân quyền theo action
+    - member: read
+    - admin: create, delete, update, read
+    - operator: create, update, read
+- BE phân quyền
+  - operator: FE -> call api -> inject access token -> BE decode access token -> get role -> decide yes/no response ok

@@ -24,6 +24,8 @@ import Transaction from "./components/profile/Transaction"
 import Membership from "./components/profile/Membership"
 import User from "./pages/fundamental/User"
 import UserDetail from "./pages/fundamental/UserDetail"
+import AuthRoute from "./routes/AuthRoute"
+import GuestRoute from "./routes/GuestRoute"
 
 function App() {
   const location = useLocation();
@@ -103,6 +105,14 @@ function App() {
                   User
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/login"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -119,14 +129,15 @@ function App() {
       <Route path="/profile/account-transaction" element={<Transaction />} />
       <Route path="/profile/account-member" element={<Membership />} /> */}
 
-      <Route path="/profile" element={<Profile />}>
+      <Route path="/profile" element={<AuthRoute><Profile /></AuthRoute>}>
         <Route index element={<AccountBank />} />
         <Route path="account-bank" element={<AccountBank />} />
         <Route path="account-transaction" element={<Transaction />} />
         <Route path="account-member" element={<Membership />} />
       </Route>
+       <Route path="/login" element={<GuestRoute><div>login page</div></GuestRoute>} />
 
-      <Route path="/user" element={<User />} />
+      <Route path="/user" element={<AuthRoute><User /></AuthRoute>} />
       <Route path="/user/:id" element={<UserDetail />} />
     </Routes>
 

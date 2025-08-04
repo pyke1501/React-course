@@ -3,6 +3,8 @@ import { Link, Outlet } from 'react-router'
 // /profile, /profile/bank, /profile/transaction, /profile/membership
 
 function Profile() {
+  
+  // code logic check login?
   return (
     <section className="bg-white p-8 antialiased dark:bg-gray-900 md:py-8 w-[768px] mx-auto">
       <h2 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl md:mb-6">General overview</h2>

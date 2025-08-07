@@ -26,6 +26,7 @@ import User from "./pages/fundamental/User"
 import UserDetail from "./pages/fundamental/UserDetail"
 import AuthRoute from "./routes/AuthRoute"
 import GuestRoute from "./routes/GuestRoute"
+import TodoTracker from "./sampleApp/hoang/app-context/components/TodoTracker"
 
 function App() {
   const location = useLocation();
@@ -113,6 +114,14 @@ function App() {
                   Login
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/todoTracker"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  Todo Tracker
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -124,6 +133,7 @@ function App() {
       <Route path="/props" element={<Props />} />
       <Route path="/state" element={<State />} />
       <Route path="/component" element={<Component />} />
+      <Route path="/todoTracker" element={<TodoTracker />} />
       {/* <Route path="/profile" element={<Profile />} />
       <Route path="/profile/account-bank" element={<AccountBank />} />
       <Route path="/profile/account-transaction" element={<Transaction />} />

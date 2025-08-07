@@ -11,7 +11,7 @@ function AddTodo({ onAdd }: Props) {
   
   // Function xử lý khi click Add
   const handleAdd = () => {
-    if (inputText.trim()) { // Kiểm tra không rỗng
+    if (inputText) { // Kiểm tra không rỗng
       onAdd(inputText.trim()); // Gọi function từ cha
       setInputText(''); // Clear input sau khi thêm
     }

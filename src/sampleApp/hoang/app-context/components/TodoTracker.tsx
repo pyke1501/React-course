@@ -8,24 +8,29 @@ import { FilterType, Todo } from '../types/type';
 
 const { Title } = Typography;
 
+// click delete todo -> function filter todo -> setState -> component re-render ->  useEffect run -> update localstorage
+
 function TodoTracker() {
+  const todoStorage = localStorage.getItem('todos');
+  const savedTodos = todoStorage ? JSON.parse(todoStorage) : [];
+
   // 3 state chính của app
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(savedTodos);
   const [filter, setFilter] = useState<FilterType>('all');
   const [searchText, setSearchText] = useState('');
   
-  // Load todos từ localStorage 
-  useEffect(() => {
-    const savedTodos = localStorage.getItem('todos');
-    if (savedTodos) {
-      try {
-        const parsedTodos = JSON.parse(savedTodos);
-        setTodos(parsedTodos);
-      } catch (error) {
-        console.error('Error loading todos:', error);
-      }
-    }
-  }, []);
+  // // Load todos từ localStorage 
+  // useEffect(() => {
+  //   const savedTodos = localStorage.getItem('todos');
+  //   if (savedTodos) {
+  //     try {
+  //       const parsedTodos = JSON.parse(savedTodos);
+  //       setTodos(parsedTodos);
+  //     } catch (error) {
+  //       console.error('Error loading todos:', error);
+  //     }
+  //   }
+  // }, []);
   
   // Save todos vào localStorage mỗi khi todos thay đổi
   useEffect(() => {
@@ -65,8 +70,8 @@ function TodoTracker() {
     setTodos([]);
   };
   
-  const getFilteredTodos = (): Todo[] => {
-    let filteredTodos = todos;
+  const filteredTodos = React.useMemo(() => {
+    let filteredTodos = todos; //[]
     
     if (filter === 'completed') {
       filteredTodos = filteredTodos.filter(todo => todo.completed);
@@ -77,12 +82,9 @@ function TodoTracker() {
         todo.text.toLowerCase().includes(searchText.toLowerCase())
       );
     }
-    
     return filteredTodos;
-  };
-  
-  const filteredTodos = getFilteredTodos();
-  
+  }, [searchText, todos])
+
   return (
     <div style={{
       minHeight: '100vh',

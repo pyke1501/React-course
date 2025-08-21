@@ -1,0 +1,29 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.row:hover {
+  background-color: #f9f9f9;
+}
+
+.buttonAction {
+  border-radius: 6px;
+  color: #ffff;
+  background-color: rgb(7, 89, 241);
+}
+
+.actionCell {
+  text-align: center;
+}

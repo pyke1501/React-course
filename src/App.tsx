@@ -17,7 +17,7 @@ import PerformanceHook from "./pages/fundamental/PerformanceHook"
 import TrafficLight from "./sampleApp/hoang/HoangTrafficLight";
 import HoangJobBoard from "./sampleApp/hoang/jobBoard/hoangJobBoard"
 import { Link, NavLink, Route, Routes, useLocation } from "react-router"
-import React from "react"
+import React, { useState } from "react"
 import Profile from "./pages/fundamental/Profile"
 import AccountBank from "./components/profile/AccountBank"
 import Transaction from "./components/profile/Transaction"
@@ -26,6 +26,7 @@ import User from "./pages/fundamental/User"
 import UserDetail from "./pages/fundamental/UserDetail"
 import AuthRoute from "./routes/AuthRoute"
 import GuestRoute from "./routes/GuestRoute"
+import ElectronicStore from "./sampleApp/hoang/electronicStore/ElectronicStore"
 
 function App() {
   const location = useLocation();
@@ -113,6 +114,14 @@ function App() {
                   Login
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/electronic-store"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  Electronic store
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -139,6 +148,7 @@ function App() {
 
       <Route path="/user" element={<AuthRoute><User /></AuthRoute>} />
       <Route path="/user/:id" element={<UserDetail />} />
+      <Route path="/electronic-store" element={<ElectronicStore />} />
     </Routes>
 
     <br /><br />

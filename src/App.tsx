@@ -159,6 +159,8 @@ function App() {
           <Route index element={<div>please select invoice</div>} />
           <Route path=":invoiceId" element={<InvoiceDetail />} />
         </Route>
+        <Route path="member/:memberId" element={<Layout>this member</Layout>} />
+
       </Route>
       <Route path="/user/:id" element={<UserDetail />} />
     </Routes>

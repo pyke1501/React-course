@@ -1,3 +1,9 @@
+import { Link, Outlet } from "react-router"
+
 export default function Home() {
-  return <h2>Welcome to Home Page</h2>;
+  return (
+    <div>
+      this is homepage
+    </div>
+  );
 }

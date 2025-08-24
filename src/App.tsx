@@ -27,6 +27,11 @@ import UserDetail from "./pages/fundamental/UserDetail"
 import AuthRoute from "./routes/AuthRoute"
 import GuestRoute from "./routes/GuestRoute"
 import Bookkeeper from "./sampleApp/hoang/bookkeeper/Bookkeeper"
+import Home from "./sampleApp/hoang/bookkeeper/Home"
+import Layout from "./sampleApp/hoang/bookkeeper/Layout"
+import Contact from "./sampleApp/hoang/bookkeeper/Contact"
+import InvoicePage from "./sampleApp/hoang/bookkeeper/InvoicePage"
+import InvoiceDetail from "./sampleApp/hoang/bookkeeper/InvoiceDetail"
 
 function App() {
   const location = useLocation();
@@ -147,7 +152,14 @@ function App() {
        <Route path="/login" element={<GuestRoute><div>login page</div></GuestRoute>} />
 
       <Route path="/user" element={<AuthRoute><User /></AuthRoute>} />
-      <Route path="/bookeeper" element={<Bookkeeper />} />
+      <Route path="/bookeeper">
+        <Route index element={<Layout><Home /></Layout>} />
+        <Route path="contact" element={<Layout><Contact /></Layout>} />
+        <Route path="invoice" element={<Layout><InvoicePage /></Layout>}>
+          <Route index element={<div>please select invoice</div>} />
+          <Route path=":invoiceId" element={<InvoiceDetail />} />
+        </Route>
+      </Route>
       <Route path="/user/:id" element={<UserDetail />} />
     </Routes>
 
@@ -206,3 +218,18 @@ function App() {
 }
 
 export default App;
+
+
+/*
+nested path
+/bookeeper -> bookeeper
+/bookeeper/contact -> contact
+/bookeeper/invoice -> invoice
+/bookeeper/invoice/:id -> invoice detail
+
+sibling path
+/bookeeper -> bookeeper
+/contact -> contact
+/invoice -> invoice
+/invoice/:id -> invoice detail
+*/

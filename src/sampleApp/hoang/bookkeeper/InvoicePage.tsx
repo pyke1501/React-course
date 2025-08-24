@@ -11,7 +11,7 @@ export default function InvoicePage() {
                 {invoiceData.map(inv=> (
                     <p key={inv.number}>
                         <Link
-                        to={`/invoice/${inv.number}`}
+                        to={`/bookeeper/invoice/${inv.number}`}
                         style={{
                             color: location.pathname.includes(inv.number.toString()) ? "red" : "black"
                         }}>

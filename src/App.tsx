@@ -26,6 +26,7 @@ import User from "./pages/fundamental/User"
 import UserDetail from "./pages/fundamental/UserDetail"
 import AuthRoute from "./routes/AuthRoute"
 import GuestRoute from "./routes/GuestRoute"
+import Bookkeeper from "./sampleApp/hoang/bookkeeper/Bookkeeper"
 
 function App() {
   const location = useLocation();
@@ -113,6 +114,14 @@ function App() {
                   Login
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/bookeeper"
+                  className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                >
+                  Bookeeper
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -138,6 +147,7 @@ function App() {
        <Route path="/login" element={<GuestRoute><div>login page</div></GuestRoute>} />
 
       <Route path="/user" element={<AuthRoute><User /></AuthRoute>} />
+      <Route path="/bookeeper" element={<Bookkeeper />} />
       <Route path="/user/:id" element={<UserDetail />} />
     </Routes>
 

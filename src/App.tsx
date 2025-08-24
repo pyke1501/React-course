@@ -27,6 +27,9 @@ import UserDetail from "./pages/fundamental/UserDetail"
 import AuthRoute from "./routes/AuthRoute"
 import GuestRoute from "./routes/GuestRoute"
 import ElectronicStore from "./sampleApp/hoang/electronicStore/ElectronicStore"
+import PostStore from "./sampleApp/hoang/electronicStore/PostStore"
+import TodoStore from "./sampleApp/hoang/electronicStore/TodoStore"
+import PhotoStore from "./sampleApp/hoang/electronicStore/PhotoStore"
 
 function App() {
   const location = useLocation();
@@ -148,7 +151,12 @@ function App() {
 
       <Route path="/user" element={<AuthRoute><User /></AuthRoute>} />
       <Route path="/user/:id" element={<UserDetail />} />
-      <Route path="/electronic-store" element={<ElectronicStore />} />
+      <Route path="/electronic-store" element={<ElectronicStore />}>
+        <Route index element={<div>Please choose tab</div>} />
+        <Route path="posts" element={<PostStore />} />
+        <Route path="todos" element={<TodoStore />} />
+        <Route path="photos" element={<PhotoStore />} />
+      </Route>
     </Routes>
 
     <br /><br />

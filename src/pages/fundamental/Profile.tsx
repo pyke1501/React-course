@@ -1,8 +1,12 @@
+import { useSelector } from 'react-redux'
 import { Link, Outlet } from 'react-router'
 
 // /profile, /profile/bank, /profile/transaction, /profile/membership
 
 function Profile() {
+  const state = useSelector(state => state);
+
+  console.log('Profile: ', state)
   
   // code logic check login?
   return (

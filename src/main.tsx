@@ -7,6 +7,8 @@ import './styles/index.css';
 import App from './App.tsx'
 import { AppProvider } from './context/AppContext.tsx';
 import { BrowserRouter } from 'react-router';
+import { Provider } from 'react-redux';
+import { store } from './store.ts';
 
 /* user
 import UserEdit from './pages/user/edit';
@@ -20,10 +22,12 @@ import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
-  <BrowserRouter>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </BrowserRouter>
+  <Provider store={store}>
+  < BrowserRouter>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </BrowserRouter>
+  </Provider>
   // </StrictMode>,
 )

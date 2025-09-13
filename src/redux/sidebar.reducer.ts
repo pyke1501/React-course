@@ -5,7 +5,7 @@ const initialState = {
 
 export const sideReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'SET_EXPAND': {
+    case 'SIDE_BAR/SET_EXPAND': {
       return {
         ...state,
         isExpand: action.payload

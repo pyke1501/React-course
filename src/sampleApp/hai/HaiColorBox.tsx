@@ -1,22 +1,7 @@
 import React from "react";
 
-function HaiBoxColor() {
-  const [boxColor, setBoxColor] = React.useState({
-    currentColor: "Default",
-  });
-
+function HaiBoxColor({ boxColor, updateBoxColor }: any) {
   const colors = ["red", "yellow", "aqua", "purple"];
-
-  function updateBoxColor(e: React.MouseEvent<HTMLDivElement>) {
-    const selectedColor = e.currentTarget.className;
-
-    setBoxColor((prevState) => {
-      return {
-        currentColor:
-          prevState.currentColor === selectedColor ? "Default" : selectedColor,
-      };
-    });
-  }
 
   return (
     <>
@@ -29,11 +14,11 @@ function HaiBoxColor() {
             className={color}
             style={{
               backgroundColor:
-                boxColor.currentColor === "Default"
+                boxColor === "Default"
                   ? color
-                  : boxColor.currentColor,
+                  : boxColor,
             }}
-            onClick={updateBoxColor}
+            onClick={() => updateBoxColor(color)}
           >
             {color}
           </div>

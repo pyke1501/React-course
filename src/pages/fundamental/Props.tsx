@@ -1,5 +1,9 @@
+
+
+import { useDispatch } from "react-redux"
 import TextButton from "../../components/ui/button/text-button"
 import { useAppContext } from "../../context/AppContext"
+import { setExpand } from "../../redux/sidebar.action";
 
 /* props
  - use to pass props value into child component
@@ -39,12 +43,18 @@ function Typography() {
 }
 
 function Props() {
+  const dispatch = useDispatch();
   const product = {
     name: 'iphone',
     price: 200,
     isStock: true
   }
   const { theme } = useAppContext();
+
+
+  function uppdateExpand() {
+    dispatch(setExpand(true));
+  }
 
   console.log('props theme: ', theme)
 
@@ -67,6 +77,7 @@ function Props() {
         {...product} // spread operator
       >
         this is children
+        <button onClick={uppdateExpand}>Dispatch action update expand</button>
       </TextButton>
       
     </div>

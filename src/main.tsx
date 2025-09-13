@@ -23,11 +23,11 @@ import { UserList, UserShow, UserCreate, UserEdit } from './pages/user';
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
   <Provider store={store}>
-  < BrowserRouter>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </BrowserRouter>
-  </Provider>
+    <BrowserRouter>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </BrowserRouter>
+    </Provider>
   // </StrictMode>,
 )

@@ -29,11 +29,28 @@ import GuestRoute from "./routes/GuestRoute"
 
 function App() {
   const location = useLocation();
+  const [boxColor, setBoxColor] = React.useState({
+    currentColor: "Default",
+  });
+  
 
   React.useEffect(() => {
     // GA
     console.log('location: ', location)
   }, [location])
+
+
+  function updateBoxColor(color: string) {
+    console.log('color: ', color)
+    setBoxColor((prevState) => {
+      return {
+        currentColor:
+          prevState.currentColor === color ? "Default" : color,
+      };
+    });
+  }
+
+  console.log('boxColor: ', boxColor)
 
 
   return (
@@ -157,13 +174,13 @@ function App() {
       <ListKey />
 
       <br />
-      <HaiBoxColor />
+      <HaiBoxColor boxColor={boxColor.currentColor} updateBoxColor={updateBoxColor}/>
 
       <br />
       <PropDrillingLiftingStateUp />
 
         <div style={{justifyContent: "center"}}>
-          <HoangGenerateBox />
+          <HoangGenerateBox boxColor={boxColor.currentColor} />
         </div>
       <br />
       <Form />

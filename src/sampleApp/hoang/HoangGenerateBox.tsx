@@ -10,7 +10,7 @@ const getRandomColor = () => {
   return color;
 };
 
-function HoangGenerateBox() {
+function HoangGenerateBox({ boxColor }: any) {
   const [numBoxes, setNumBoxes] = useState(0);
   const [boxes, setBoxes] = useState<{ id: number; color: string }[]>([]);
 
@@ -80,7 +80,7 @@ function HoangGenerateBox() {
             <div
               key={box.id}
               className="box"
-              style={{ backgroundColor: box.color }}
+              style={{ backgroundColor: boxColor }}
               onClick={() => toggleColor(box.id)}
             >
               box #{box.id}
